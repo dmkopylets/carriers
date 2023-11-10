@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Carrier index{% endblock %}
+
+{% block body %}
+    <h1>Carriers List</h1>
+
+    <table class="table table-bordered table-striped table-hover">
+        <thead class="thead-inverse">
+            <tr>
+                <th>Id</th>
+                <th>Title</th>
+                <th>Weight_Categoring</th>
+                <th>Price_Uncategorzed</th>
+                <th class="actions">actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for carrier in carriers %}
+            <tr>
+                <td>{{ carrier.id }}</td>
+                <td>{{ carrier.title }}</td>
+                <td>{{ carrier.isWeightCategoring ? 'Yes' : 'No' }}</td>
+                <td>{{ carrier.getPriceUncategorzed }}</td>
+                <td class="actions">
+                    <a class="btn btn-sm btn-primary" href="{{ path('frontend_carriers_show', {'id': carrier.id}) }}">show</a>
+                    &nbsp;
+                    <a class="btn btn-sm btn-info" href="{{ path('frontend_carriers_edit', {'id': carrier.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="9">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a class="btn btn-sm btn-primary" href="{{ path('frontend_carriers_new') }}">Create new</a>
+{% endblock %}

@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}VUE calculator{% endblock %}
+
+{% block body %}
+
+
+<div class="example-wrapper" id="app">
+
+    <div class="text-center">
+        <h3>My Symfony 6 + Vue SPA test task project</h3>
+
+
+        <div class="jumbotron text-center">
+            <Price :carriers="{{ carriers | json_encode }}"></Price>
+        </div>
+    </div>
+</div>
+{% endblock %}

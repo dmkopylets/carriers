@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Carrier{% endblock %}
+
+{% block body %}
+    <h1>Carrier</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ carrier.id }}</td>
+            </tr>
+            <tr>
+                <th>Title</th>
+                <td>{{ carrier.title }}</td>
+            </tr>
+            <tr>
+                <th>Weight_Categoring</th>
+                <td>{{ carrier.isWeightCategoring ? 'Yes' : 'No' }}</td>
+            </tr>
+
+            <tr>
+                <th>Price_Uncategorzed</th>
+                <td>{{ carrier.getPriceUncategorzed }}</td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="actions">
+        <a class="btn btn-sm btn-info" href="{{ path('frontend_carriers_index') }}">back to list</a>
+        &nbsp;
+        <a class="btn btn-sm btn-info" href="{{ path('frontend_carriers_edit', {'id': carrier.id}) }}">edit</a>
+    </div>
+    {{ include('carrier/_delete_form.html.twig') }}
+{% endblock %}
