@@ -17,6 +17,7 @@
 /.php-cs-fixer.dist.php
 /.php-cs-fixer.cache
 ###< friendsofphp/php-cs-fixer ###
+/.editorconfig
 /run_psalm.sh
 /psalm.xml
 /phpstan.neon.dist
